@@ -14,6 +14,7 @@ if check:
     st.write(f"Number of duplicates in dataset: {df.duplicated().sum()}")
     st.write(f"Descriptive statistics on dataframe are found below:")
     st.write(df.describe())
+    st.write("The number of null values for each field is included below:")
     st.write(df.isna().sum())
 
     column_list = list(df.columns)
