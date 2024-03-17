@@ -21,7 +21,7 @@ if check:
     for i in column_list:
         st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
         st.write(df[i].value_counts().head(10))
-        st.header(body='', divider='blue')
+        st.header(body=' ', divider='blue')
     st.write(df.head(15))
 st.header("Visualizations")
 st.write(px.histogram(df, x='manufacturer', color='condition', title='Manufacturer of Car by Car Condition'))
