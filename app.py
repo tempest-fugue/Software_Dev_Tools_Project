@@ -7,17 +7,18 @@ st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us.csv')
 
-check = st.checkbox("Check to see data on dataframe and each field: ")
+check = st.checkbox("Check to see data on dataframe and each field.")
 if check:
     st.write(f"Number of duplicates in dataset: {df.duplicated().sum()}")
     st.write(f" Descriptive statstics on dataframe are found below: {df.describe()}")
+    new = df['model'].str.split(" ", n=1, expand=True)
+    df['manufacturer'] = new[0]
+    column_list = df.columns
     for i in column_list:
         st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
         st.write(df[i].value_counts().head(10))
         st.write('- - - - - - - - - - - - - - -')
-new = df['model'].str.split(" ", n=1, expand=True)
-df['manufacturer'] = new[0]
-st.write(df.head(15))
+    st.write(df.head(15))
 st.write(df['manufacturer'].value_counts().plot(kind='bar', x='manufacturer', ylabel = 'Count', xlabel='manufacturer', title='Count of Vehicles by Manufacturer'))
 st.write(px.histogram(df, x='manufacturer', color='condition', title='Manufacturer of Car by Car Condition'))
 st.write(df['manufacturer'].nunique())
