@@ -7,14 +7,15 @@ import streamlit as st
 st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us.csv')
-st.write(df.info())
 st.write(f"Number of duplicates in dataset: {df.duplicated().sum()}")
 df.sample(10)
 st.write(df.describe())
 column_list = df.columns.to_list()
 for i in column_list:
     try:
-        st.write(st.pyplot(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)))
+        fig = plt.figure() 
+        plt.plot(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)) 
+        st.pyplot(fig)
     except:
        pass
 for i in column_list:
