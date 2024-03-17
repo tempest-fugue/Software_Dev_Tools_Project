@@ -6,7 +6,7 @@ import plotly.express as px
 import streamlit as st
 st.header("hello Worldies")
 
-df = pd.read_csv('/Users/ericmacdougall/Downloads/vehicles_us.csv')
+df = pd.read_csv('vehicles_us.csv')
 df.info()
 display(df.isna().sum() / len(df) * 100)
 "The above represents the percent of null values in each dataframe field."
