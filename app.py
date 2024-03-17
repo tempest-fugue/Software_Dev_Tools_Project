@@ -23,7 +23,7 @@ if check:
         st.header(divider='blue')
     st.write(df.head(15))
 st.header("Visualizations")
-st.write(px.bar(df, x='manufacturer', ylabel = 'Count', xlabel='manufacturer', title='Count of Vehicles by Manufacturer'))
+st.write(px.bar(df, x='manufacturer', title='Count of Vehicles by Manufacturer'))
 st.write(px.histogram(df, x='manufacturer', color='condition', title='Manufacturer of Car by Car Condition'))
 st.write(px.histogram(df, x='manufacturer', color='type', title='Count of Cars by Manufacturer by Car Type'))
 st.write(px.histogram(df, x='days_listed', color='manufacturer', title='Days Listed per Car per Manufacturer'))
