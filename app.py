@@ -1,27 +1,20 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
-import scipy.stats as stats
 import plotly.express as px
 import streamlit as st
 st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us.csv')
-st.write(f"Number of duplicates in dataset: {df.duplicated().sum()}")
-df.sample(10)
-st.write(df.describe())
-column_list = df.columns.to_list()
-for i in column_list:
-    try:
-        fig = plt.figure() 
-        plt.plot(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)) 
-        st.pyplot(fig)
-    except:
-       pass
-for i in column_list:
-    st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
-    st.write(df[i].value_counts().head(10))
-    st.write('- - - - - - - - - - - - - - -')
+
+check = st.checkbox("Check to see data on dataframe and each field: ")
+if check:
+    st.write(f"Number of duplicates in dataset: {df.duplicated().sum()}")
+    st.write(f" Descriptive statstics on dataframe are found below: {df.describe()}")
+    for i in column_list:
+        st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
+        st.write(df[i].value_counts().head(10))
+        st.write('- - - - - - - - - - - - - - -')
 new = df['model'].str.split(" ", n=1, expand=True)
 df['manufacturer'] = new[0]
 st.write(df.head(15))
