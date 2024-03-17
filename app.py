@@ -6,13 +6,12 @@ import streamlit as st
 st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us.csv')
-
+new = df['model'].str.split(" ", n=1, expand=True)
+df['manufacturer'] = new[0]
 check = st.checkbox("Check to see data on dataframe and each field.")
 if check:
     st.write(f"Number of duplicates in dataset: {df.duplicated().sum()}")
     st.write(f" Descriptive statstics on dataframe are found below: {df.describe()}")
-    new = df['model'].str.split(" ", n=1, expand=True)
-    df['manufacturer'] = new[0]
     column_list = list(df.columns)
     for i in column_list:
         st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
