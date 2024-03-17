@@ -4,19 +4,17 @@ import math
 import scipy.stats as stats
 import plotly.express as px
 import streamlit as st
-st.header("hello Worldies")
+st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us.csv')
 df.info()
-st.write(df.isna().sum() / len(df) * 100)
-"The above represents the percent of null values in each dataframe field."
 df.duplicated().sum()
 df.sample(10)
 df.describe()
 column_list = df.columns.to_list()
 for i in column_list:
     try:
-        st.write(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50))
+        st.pyplot(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50))
     except:
        pass
 for i in column_list:
