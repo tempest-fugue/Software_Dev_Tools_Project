@@ -13,7 +13,7 @@ if check:
     st.write(f" Descriptive statstics on dataframe are found below: {df.describe()}")
     new = df['model'].str.split(" ", n=1, expand=True)
     df['manufacturer'] = new[0]
-    column_list = df.columns
+    column_list = list(df.columns)
     for i in column_list:
         st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
         st.write(df[i].value_counts().head(10))
