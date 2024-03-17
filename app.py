@@ -8,7 +8,7 @@ st.header("hello Worldies")
 
 df = pd.read_csv('vehicles_us.csv')
 df.info()
-display(df.isna().sum() / len(df) * 100)
+print(df.isna().sum() / len(df) * 100)
 "The above represents the percent of null values in each dataframe field."
 df.duplicated().sum()
 df.sample(10)
@@ -22,11 +22,11 @@ for i in column_list:
        pass
 for i in column_list:
     print(f"The number of unique values for the {i} field: {df[i].nunique()}")
-    display(df[i].value_counts().head(10))
+    print(df[i].value_counts().head(10))
     print('- - - - - - - - - - - - - - -')
 new = df['model'].str.split(" ", n=1, expand=True)
 df['manufacturer'] = new[0]
-display(df.head(15))
+print(df.head(15))
 df['manufacturer'].value_counts().plot(kind='bar', x='manufacturer', ylabel = 'Count', xlabel='manufacturer', title='Count of Vehicles by Manufacturer')
 px.histogram(df, x='manufacturer', color='condition', title='Manufacturer of Car by Car Condition')
 df['manufacturer'].nunique()
