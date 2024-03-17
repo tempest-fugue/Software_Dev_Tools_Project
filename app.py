@@ -8,7 +8,7 @@ st.header("hello Worldies")
 
 df = pd.read_csv('vehicles_us.csv')
 df.info()
-print(df.isna().sum() / len(df) * 100)
+st.write(df.isna().sum() / len(df) * 100)
 "The above represents the percent of null values in each dataframe field."
 df.duplicated().sum()
 df.sample(10)
@@ -16,14 +16,13 @@ df.describe()
 column_list = df.columns.to_list()
 for i in column_list:
     try:
-        df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)
-        plt.show()
+        st.write(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50))
     except:
        pass
 for i in column_list:
-    print(f"The number of unique values for the {i} field: {df[i].nunique()}")
-    print(df[i].value_counts().head(10))
-    print('- - - - - - - - - - - - - - -')
+    st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
+    st.write(df[i].value_counts().head(10))
+    st.write('- - - - - - - - - - - - - - -')
 new = df['model'].str.split(" ", n=1, expand=True)
 df['manufacturer'] = new[0]
 st.write(df.head(15))
