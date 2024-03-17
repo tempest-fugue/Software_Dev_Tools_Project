@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
-import scipy.stats as st
+import scipy.stats as stats
 import plotly.express as px
+import streamlit as st
+st.header("hello Worldies")
+
 df = pd.read_csv('/Users/ericmacdougall/Downloads/vehicles_us.csv')
 df.info()
 display(df.isna().sum() / len(df) * 100)
