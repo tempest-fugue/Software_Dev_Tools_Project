@@ -18,8 +18,7 @@ check2 = st.checkbox("Check to see histograms on each field.")
 if check2:
     for i in column_list:
         try:
-            df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)
-            plt.show()
+            st.plotly(df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50))
         except:
            pass
 
