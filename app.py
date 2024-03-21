@@ -1,11 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import math
 import plotly.express as px
 import streamlit as st
 st.header("Vehicles_US Dashboard")
 
-df = pd.read_csv('vehicles_us.csv')
+df = pd.read_csv('vehicles_us_clean.csv')
 new = df['model'].str.split(" ", n=1, expand=True)
 df['manufacturer'] = new[0]
 check = st.checkbox("Check to see data on dataframe and each field.")
@@ -16,12 +15,19 @@ if check:
     st.write(df.describe())
     st.write("The number of null values for each field is included below:")
     st.write(df.isna().sum())
-
-    column_list = list(df.columns)
+check2 = st.checkbox("Check to see histograms on each field.")
+if check2:
     for i in column_list:
-        st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
-        st.write(df[i].value_counts().head(10))
-    st.write(df.head(15))
+    try:
+        df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)
+        plt.show()
+    except:
+       pass
+
+for i in column_list:
+    st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
+    st.write(df[i].value_counts().head(10))
+st.write(df.head(15))
 st.header("Visualizations")
 st.write(px.histogram(df, x='manufacturer', color='condition', title='Manufacturer of Car by Car Condition'))
 st.write(px.histogram(df, x='manufacturer', color='type', title='Count of Cars by Manufacturer by Car Type'))
