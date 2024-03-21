@@ -6,9 +6,9 @@ st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us_clean.csv')
 column_list = list(df.columns)
-column_list.drop(0)
-column_list.drop('model')
-column_list.drop('date_posted')
+column_list.remove('Unnamed: 0')
+column_list.remove('model')
+column_list.remove('date_posted')
 
 check = st.checkbox("Check to see data on dataframe and each field.")
 if check:
