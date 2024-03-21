@@ -16,6 +16,7 @@ if check:
     st.write(df.isna().sum())
 check2 = st.checkbox("Check to see histograms on each field.")
 if check2:
+    st.write(column_list)
     for i in column_list:
         try:
             fig, ax = plt.subplots()
