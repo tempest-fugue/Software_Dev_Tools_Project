@@ -18,11 +18,11 @@ if check:
 check2 = st.checkbox("Check to see histograms on each field.")
 if check2:
     for i in column_list:
-    try:
-        df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)
-        plt.show()
-    except:
-       pass
+        try:
+            df[i].plot(kind='hist', xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}', bins=50)
+            plt.show()
+        except:
+           pass
 
 for i in column_list:
     st.write(f"The number of unique values for the {i} field: {df[i].nunique()}")
