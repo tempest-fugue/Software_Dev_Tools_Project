@@ -5,8 +5,7 @@ import streamlit as st
 st.header("Vehicles_US Dashboard")
 
 df = pd.read_csv('vehicles_us_clean.csv')
-new = df['model'].str.split(" ", n=1, expand=True)
-df['manufacturer'] = new[0]
+column_list = list(df.columns)
 check = st.checkbox("Check to see data on dataframe and each field.")
 if check:
     st.header("Stats")
