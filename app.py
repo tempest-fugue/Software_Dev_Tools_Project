@@ -20,7 +20,7 @@ if check2:
         fig, ax = plt.subplots()
         ax.hist(df[i], bins=50, xlabel=f'{i}', ylabel='Count', x=f'{i}', title=f'Count of Vehicles by {i.title()}')
         plt.xticks(rotation=45, ha='right')
-        plt.xlabel(label=f'{i))
+        plt.xlabel(label=f'{i}')
         st.pyplot(fig)        
      
 
