@@ -17,13 +17,11 @@ if check:
 check2 = st.checkbox("Check to see histograms on each field.")
 if check2:
     for i in column_list:
-        try:
-            fig, ax = plt.subplots()
-            ax.hist(df[i], bins=50)
+        fig, ax = plt.subplots()
+        ax.hist(df[i], bins=50)
             
-            st.pyplot(fig)        
-        except:
-           pass
+        st.pyplot(fig)        
+     
 
 st.header("Visualizations")
 st.write(px.histogram(df, x='manufacturer', color='condition', title='Manufacturer of Car by Car Condition'))
