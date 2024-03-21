@@ -19,10 +19,10 @@ if check2:
     for i in column_list:
         fig, ax = plt.subplots()
         ax.hist(df[i], bins=50)
-        plt.title(f'Count of Vehicles by {i.title()}')
+        plt.title(label=f'Count of Vehicles by {i.title()}')
         plt.xticks(rotation=45, ha='right')
-        plt.xlabel(label=f'{i}')
-        plt.ylabel(label='Count')
+        plt.xlabel(xlabel=f'{i}')
+        plt.ylabel(ylabel='Count')
         st.pyplot(fig)        
      
 
