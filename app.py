@@ -44,6 +44,7 @@ st.write(px.histogram(df, x='price', color='type', title='Price of Car per Type'
 st.write(px.histogram(df, x='days_listed', color='condition', title='Days Listed per Car Condition'))
 st.write(px.scatter(df, x='days_listed', y='price', title='Days Listed vs Price of Car'))
 st.write(px.scatter(df, y='odometer', x='price', title='Odometer Mileage vs Car Price'))
+st.write(px.scatter(df, y='price', x='odometer', title='Odometer Mileage Car Price vs. Odometer Mileage'))
 st.write(px.histogram(df, x='days_listed', color='paint_color', title='Days Listed by Paint-color of Car'))
 st.write(px.histogram(df, x='model_year', color='type', title="Count of Car's Model Year and Vehicle Type"))
 st.write(px.histogram(df, x='model_year', color='cylinders', title="Count of Car's Model Year and Cylinders"))
