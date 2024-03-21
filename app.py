@@ -17,13 +17,16 @@ if check:
 check2 = st.checkbox("Check to see histograms on each field.")
 if check2:
     for i in column_list:
-        fig, ax = plt.subplots()
-        ax.hist(df[i], bins=50)
-        plt.title(label=f'Count of Vehicles by {i.title()}')
-        plt.xticks(rotation=45, ha='right')
-        plt.xlabel(xlabel=f'{i}')
-        plt.ylabel(ylabel='Count')
-        st.pyplot(fig)        
+        try:
+            fig, ax = plt.subplots()
+            ax.hist(df[i], bins=50)
+            plt.title(label=f'Count of Vehicles by {i.title()}')
+            plt.xticks(rotation=45, ha='right')
+            plt.xlabel(xlabel=f'{i}')
+            plt.ylabel(ylabel='Count')
+            st.pyplot(fig)
+        except:
+            pass
      
 
 st.header("Visualizations")
