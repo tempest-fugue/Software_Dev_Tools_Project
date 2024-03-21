@@ -18,9 +18,11 @@ check2 = st.checkbox("Check to see histograms on each field.")
 if check2:
     for i in column_list:
         fig, ax = plt.subplots()
-        ax.hist(df[i], bins=50, xlabel=f'{i}', ylabel='Count', title=f'Count of Vehicles by {i.title()}')
+        ax.hist(df[i], bins=50)
+        plt.title(f'Count of Vehicles by {i.title()}')
         plt.xticks(rotation=45, ha='right')
         plt.xlabel(label=f'{i}')
+        plt.ylabel(label='Count')
         st.pyplot(fig)        
      
 
