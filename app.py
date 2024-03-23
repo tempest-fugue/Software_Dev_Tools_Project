@@ -20,9 +20,7 @@ if check:
     st.write(df.describe())
     st.write("The number of null values for each field is included below:")
     st.write(df.isna().sum())
-    st.write(f"The dataset was cleaned in the EDA (i.e. Exploratory Data Analysis) notebook hosted
-             on Gihub. The initial data file and the cleaned data file are hosted there
-             as well. Every piece of data in the streamlit app is based on the cleaned dataset.")
+    st.write(f"The dataset was cleaned in the EDA (i.e. Exploratory Data Analysis) notebook hosted on Gihub. The initial data file and the cleaned data file are hosted there as well. Every piece of data in the streamlit app is based on the cleaned dataset.")
 
 if check2:
     st.write(column_list)
